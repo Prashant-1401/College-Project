@@ -6,18 +6,22 @@
       "use": "@vercel/python"
     },
     {
-      "src": "frontend/**",
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "script.js",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "api/index.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "frontend/$1"
-    }
+    { "src": "/api/(.*)", "dest": "/api/index.py" },
+    { "src": "/style.css", "dest": "/style.css" },
+    { "src": "/script.js", "dest": "/script.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
